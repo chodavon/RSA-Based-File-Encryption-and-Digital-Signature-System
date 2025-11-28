@@ -24,8 +24,8 @@ while True:
         encrypt_file(file)
 
     elif choice == "3":
-        input_file = input("Enter ciphertext file (default ciphertext.bin): ") or "ciphertext.bin"
-        output_file = input("Enter output file (default decrypted.txt): ") or "decrypted.txt"
+        input_file = input("Enter ciphertext file (default ciphertext.txt): ")
+        output_file = input("Enter output file (default decrypted.txt): ") 
         decrypt_file(input_file, output_file)
 
     elif choice == "4":
@@ -43,3 +43,4 @@ while True:
 
     else:
         print("Invalid option!")
+
