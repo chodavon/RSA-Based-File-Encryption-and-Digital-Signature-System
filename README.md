@@ -6,6 +6,7 @@ In today’s world, our important files (photos, documents, IDs, messages) can b
 The goal I want to Build an easy tool that gives real security to everyone and I want to learn real RSA hands-on, use a trusted professional library, and make powerful protection simple enough for non-tech people (friends, family, teachers) to use safely.
 # II. Design & Architecture
 <img width="951" height="1350" alt="image" src="https://github.com/user-attachments/assets/351fc274-2401-4941-a143-6b128fcdcf88" />
+
 # III. implementation Detail
 1. Libraries Used
 The project uses the cryptography library.
