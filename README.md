@@ -74,5 +74,58 @@ SHA-256 → for hashing the message during signing
 Padding (OAEP & PSS) → makes RSA safer from attacks
 
 # IV. Usage Guide
+Option 1 → Generate RSA Keys
+Select 1
+Program creates:
+private.pem
+public.pem
+These two files must exist before doing encryption or signing.
+
+Option 2 → Encrypt File
+Create any plaintext file (example: message.txt)
+Choose 2
+Enter file name:
+message.txt
+Program outputs:
+ciphertext.bin (encrypted file)
+
+Option 3 → Decrypt File
+Choose 3
+Enter encrypted file name:
+ciphertext.txt
+Enter output file:
+decrypted.txt
+Program creates:
+decrypted.txt (original message restored)
+
+Option 4 → Sign File
+Choose 4
+Enter file to sign:
+message.txt
+Program creates:
+message.txt.sig (digital signature)
+
+Option 5 → Verify Signature
+Choose 5
+Enter file:
+message.txt
+Enter signature file:
+message.txt.sig
+Program displays:
+[✓] Signature is valid!
+or
+[✗] Signature is invalid!
+
+# V. Conclusion and Future Work
+This project successfully demonstrates how RSA can be used for secure communication. It shows key generation, file encryption, file decryption, digital signatures, and verification. The implementation teaches how public and private keys work together to provide confidentiality and authenticity.
+
+However, the system can still be improved. Future work may include:
+Adding password protection for the private key
+Supporting larger files using hybrid encryption (AES + RSA)
+Creating a GUI version of the system
+Adding logging to monitor activity
+Improving error handling for missing files.
+
+# VI. References
 
 
