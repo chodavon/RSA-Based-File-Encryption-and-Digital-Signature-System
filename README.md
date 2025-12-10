@@ -5,7 +5,7 @@ In today’s world, our important files (photos, documents, IDs, messages) can b
 •	Digital Signature: Adds a secure seal to prove the file is really from you and hasn’t been altered.
 The goal I want to Build an easy tool that gives real security to everyone and I want to learn real RSA hands-on, use a trusted professional library, and make powerful protection simple enough for non-tech people (friends, family, teachers) to use safely.
 # II. Design & Architecture
-<img width="951" height="1350" alt="image" src="https://github.com/user-attachments/assets/351fc274-2401-4941-a143-6b128fcdcf88" />
+<img width="806" height="1114" alt="image" src="https://github.com/user-attachments/assets/d37d1d4c-2da7-4660-b23c-b71c932fa6e9" />
 
 # III. implementation Detail
 1. Libraries Used
