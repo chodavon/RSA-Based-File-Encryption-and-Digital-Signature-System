@@ -70,7 +70,7 @@ Steps:
 
 1. Read the plaintext file
 2. Encrypt the content using RSA
-3. Save the encrypted output as `ciphertext.bin`
+3. Save the encrypted output as `ciphertext.txt`
 
 Only the corresponding private key can decrypt the encrypted file.
 
@@ -84,7 +84,7 @@ File decryption requires the **private key**.
 
 Steps:
 
-1. Read the encrypted file (`ciphertext.bin`)
+1. Read the encrypted file (`ciphertext.txt`)
 2. Decrypt the content using the private key
 3. Save the original data as `decrypted.txt`
 
@@ -167,14 +167,14 @@ These files must exist before encryption or signing.
 
 Output:
 
-* `ciphertext.bin` (encrypted file)
+* `ciphertext.txt` (encrypted file)
 
 ---
 
 ### Option 3: Decrypt a File
 
 1. Select option **3**
-2. Enter encrypted file name: `ciphertext.bin`
+2. Enter encrypted file name: `ciphertext.txt`
 3. Enter output file name: `decrypted.txt`
 
 Result:
