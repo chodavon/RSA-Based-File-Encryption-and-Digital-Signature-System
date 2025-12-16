@@ -116,6 +116,43 @@ Program displays:
 or
 [✗] Signature is invalid!
 
+**Before use it we need to install library**
+pip install cryptograhy
+
+**Function in this code**
+Functions Used (By File)
+1.keys.py
+Total Functions: 1
+generate_keys()
+Generates RSA private & public keys
+Saves them as private.pem and public.pem
+
+2.encryptor.py
+Total Functions: 2
+  a.encrypt_file(input_file)
+  Encrypts a plaintext file
+  Uses public key
+  Output: ciphertext.txt
+  b.decrypt_file(input_file, output_file)
+  Decrypts encrypted file
+  Uses private key
+  Output: decrypted.txt
+
+3.signer.py
+Total Functions: 2
+  a.sign_file(file_path)
+  Signs a file using private key
+  Output: .sig signature file
+  b.verify_file_signature(file_path, sig_file)
+  Verifies signature using public key
+  Confirms file authenticity
+
+4.main.py
+Total Functions: 1
+menu()
+Displays user options
+Controls program flow
+
 # V. Conclusion and Future Work
 This project successfully demonstrates how RSA can be used for secure communication. It shows key generation, file encryption, file decryption, digital signatures, and verification. The implementation teaches how public and private keys work together to provide confidentiality and authenticity.
 
@@ -127,5 +164,9 @@ Adding logging to monitor activity
 Improving error handling for missing files.
 
 # VI. References
+https://www.geeksforgeeks.org/computer-networks/cryptography-and-its-types/
+https://stackoverflow.com/questions/20531474/decrypting-with-rsa-private-key
+https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/
+https://www.askpython.com/python/examples/rsa-algorithm-in-python
 
 
