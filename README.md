@@ -1,172 +1,239 @@
-# RSA-Based-File-Encryption-and-Digital-Signature-System
-# I. Introduction 
-In today’s world, our important files (photos, documents, IDs, messages) can be easily stolen or changed. This project, “RSA-Based File Encryption and Digital Signature System”, is a simple Python program that uses RSA the same strong encryption used by banks and WhatsApp to keep files safe in two ways:
-•	Encryption: Locks any file so only the person with the private key can open it.
-•	Digital Signature: Adds a secure seal to prove the file is really from you and hasn’t been altered.
-The goal I want to Build an easy tool that gives real security to everyone and I want to learn real RSA hands-on, use a trusted professional library, and make powerful protection simple enough for non-tech people (friends, family, teachers) to use safely.
-# II. Design & Architecture
-<img width="806" height="1114" alt="image" src="https://github.com/user-attachments/assets/d37d1d4c-2da7-4660-b23c-b71c932fa6e9" />
+# 🔐 RSA-Based File Encryption and Digital Signature System
 
-# III. implementation Detail
-1. Libraries Used
-The project uses the cryptography library.
-This library helps us:
-Create RSA keys
-Encrypt and decrypt files
-Sign and verify signatures
-We also use normal Python file reading/writing to save data.
+## I. Introduction
 
-2. RSA Key Generation
-The function generate_keys() creates two keys:
-Private Key → kept secret
-Public Key → shared with others
-Both keys are saved into files:
-private.pem
-public.pem
-These keys are required for encryption, decryption, signing, and verifying.
+In today’s digital world, important files such as photos, documents, IDs, and messages can be easily stolen, modified, or forged. This project, **"RSA-Based File Encryption and Digital Signature System"**, is a simple Python-based application that demonstrates how **RSA cryptography** (the same technology used by banks and secure messaging apps) can be used to protect files.
 
-3. File Encryption
-The public key is used to encrypt data.
-Function: encrypt_file()
+This system provides security in two main ways:
+
+* **Encryption**: Locks a file so that only the person who owns the private key can open it.
+* **Digital Signature**: Adds a secure seal to prove that a file is genuinely from the sender and has not been altered.
+
+The goal of this project is to build an easy-to-use security tool while gaining hands-on experience with real RSA cryptography using a trusted professional library. The system is designed to be simple enough for non-technical users such as friends, family, teachers, and students.
+
+---
+
+## II. Design & Architecture
+
+The system is divided into clear modules, each responsible for a specific task:
+
+* **Key generation**
+* **File encryption and decryption**
+* **Digital signing and verification**
+* **Menu-based user control**
+
+The overall architecture follows a modular design to keep the code easy to understand, maintain, and extend.
+
+<img width="806" height="1114" alt="System Architecture" src="https://github.com/user-attachments/assets/d37d1d4c-2da7-4660-b23c-b71c932fa6e9" />
+
+---
+
+## III. Implementation Details
+
+### 1. Libraries Used
+
+This project uses the **cryptography** Python library, which provides secure and well-tested cryptographic functions.
+
+The library is used to:
+
+* Generate RSA key pairs
+* Encrypt and decrypt files
+* Sign files and verify digital signatures
+
+Standard Python file input/output is also used to read and write files.
+
+---
+
+### 2. RSA Key Generation
+
+The function `generate_keys()` creates two cryptographic keys:
+
+* **Private Key** → kept secret by the owner
+* **Public Key** → shared with others
+
+These keys are saved as:
+
+* `private.pem`
+* `public.pem`
+
+Both keys are required for encryption, decryption, signing, and verification.
+
+---
+
+### 3. File Encryption
+
+File encryption is performed using the **public key**.
+
+**Function:** `encrypt_file()`
+
 Steps:
-Read the plaintext file.
-Encrypt the content using RSA.
-Save the result into ciphertext.bin.
-Only the matching private key can decrypt it.
 
-4. File Decryption
-The private key is required to decrypt the file.
-Function: decrypt_file()
+1. Read the plaintext file
+2. Encrypt the content using RSA
+3. Save the encrypted output as `ciphertext.bin`
+
+Only the corresponding private key can decrypt the encrypted file.
+
+---
+
+### 4. File Decryption
+
+File decryption requires the **private key**.
+
+**Function:** `decrypt_file()`
+
 Steps:
-Read the encrypted file (ciphertext.bin)
-Use the private key to decrypt the content
-Save the original message into decrypted.txt
 
-5. File Signing
-The private key is used to sign a file.
-Function: sign_file()
-The program:
-Reads the file
-Creates a digital signature using SHA-256
-Saves the signature as a new file (example: test.txt.sig)
-This proves the file comes from the real sender.
+1. Read the encrypted file (`ciphertext.bin`)
+2. Decrypt the content using the private key
+3. Save the original data as `decrypted.txt`
 
-6. Signature Verification
-The public key is used to check if a signature is valid.
-Function: verify_file_signature()
-The program:
-Reads the original file
-Reads the .sig signature file
-Uses the public key to verify it
-Shows:
-Valid → file is original and not changed
-Invalid → file was changed or signature is wrong
+---
 
-7. Program Structure
-main.py → Menu and program controller
-keys.py → Generates RSA keys
-encryptor.py → Encrypts and decrypts files
-signer.py → Signs and verifies files
+### 5. File Signing
 
-8. Cryptography Methods Used
-RSA → for encryption, decryption, signing, verifying
-SHA-256 → for hashing the message during signing
-Padding (OAEP & PSS) → makes RSA safer from attacks
+Digital signatures are created using the **private key**.
 
-# IV. Usage Guide
-Option 1 → Generate RSA Keys
-Select 1
-Program creates:
-private.pem
-public.pem
-These two files must exist before doing encryption or signing.
+**Function:** `sign_file()`
 
-Option 2 → Encrypt File
-Create any plaintext file (example: message.txt)
-Choose 2
-Enter file name:
-message.txt
-Program outputs:
-ciphertext.bin (encrypted file)
+Steps:
 
-Option 3 → Decrypt File
-Choose 3
-Enter encrypted file name:
-ciphertext.txt
-Enter output file:
-decrypted.txt
-Program creates:
-decrypted.txt (original message restored)
+1. Read the file
+2. Generate a SHA-256 hash
+3. Create a digital signature
+4. Save the signature as a `.sig` file (example: `message.txt.sig`)
 
-Option 4 → Sign File
-Choose 4
-Enter file to sign:
-message.txt
-Program creates:
-message.txt.sig (digital signature)
+This proves the file was created by the legitimate sender.
 
-Option 5 → Verify Signature
-Choose 5
-Enter file:
-message.txt
-Enter signature file:
-message.txt.sig
+---
+
+### 6. Signature Verification
+
+Signature verification is done using the **public key**.
+
+**Function:** `verify_file_signature()`
+
+Steps:
+
+1. Read the original file
+2. Read the signature file
+3. Verify the signature using the public key
+
+Results:
+
+* **Valid** → File is authentic and unchanged
+* **Invalid** → File was modified or signature is incorrect
+
+---
+
+### 7. Program Structure
+
+```
+main.py      → Menu and program controller
+keys.py      → RSA key generation
+encryptor.py → File encryption and decryption
+signer.py    → Digital signing and verification
+```
+
+---
+
+### 8. Cryptography Methods Used
+
+* **RSA** → Encryption, decryption, signing, and verification
+* **SHA-256** → Hashing during digital signing
+* **OAEP & PSS Padding** → Improves RSA security and protects against attacks
+
+---
+
+## IV. Usage Guide
+
+### Option 1: Generate RSA Keys
+
+1. Select option **1**
+2. The program creates:
+
+   * `private.pem`
+   * `public.pem`
+
+These files must exist before encryption or signing.
+
+---
+
+### Option 2: Encrypt a File
+
+1. Create a plaintext file (example: `message.txt`)
+2. Select option **2**
+3. Enter the file name
+
+Output:
+
+* `ciphertext.bin` (encrypted file)
+
+---
+
+### Option 3: Decrypt a File
+
+1. Select option **3**
+2. Enter encrypted file name: `ciphertext.bin`
+3. Enter output file name: `decrypted.txt`
+
+Result:
+
+* Original content is restored
+
+---
+
+### Option 4: Sign a File
+
+1. Select option **4**
+2. Enter file name: `message.txt`
+
+Output:
+
+* `message.txt.sig` (digital signature file)
+
+---
+
+### Option 5: Verify a Signature
+
+1. Select option **5**
+2. Enter file name
+3. Enter signature file
+
 Program displays:
-[✓] Signature is valid!
-or
-[✗] Signature is invalid!
 
-**Before use it we need to install library**
-pip install cryptograhy
+* `[✓] Signature is valid!`
+* `[✗] Signature is invalid!`
 
-**Function in this code**
-Functions Used (By File)
-1.keys.py
-Total Functions: 1
-generate_keys()
-Generates RSA private & public keys
-Saves them as private.pem and public.pem
+---
 
-2.encryptor.py
-Total Functions: 2
-  a.encrypt_file(input_file)
-  Encrypts a plaintext file
-  Uses public key
-  Output: ciphertext.txt
-  b.decrypt_file(input_file, output_file)
-  Decrypts encrypted file
-  Uses private key
-  Output: decrypted.txt
+### Required Library Installation
 
-3.signer.py
-Total Functions: 2
-  a.sign_file(file_path)
-  Signs a file using private key
-  Output: .sig signature file
-  b.verify_file_signature(file_path, sig_file)
-  Verifies signature using public key
-  Confirms file authenticity
+Before running the program, install the required dependency:
 
-4.main.py
-Total Functions: 1
-menu()
-Displays user options
-Controls program flow
+```bash
+pip install cryptography
+```
 
-# V. Conclusion and Future Work
-This project successfully demonstrates how RSA can be used for secure communication. It shows key generation, file encryption, file decryption, digital signatures, and verification. The implementation teaches how public and private keys work together to provide confidentiality and authenticity.
+---
 
-However, the system can still be improved. Future work may include:
-Adding password protection for the private key
-Supporting larger files using hybrid encryption (AES + RSA)
-Creating a GUI version of the system
-Adding logging to monitor activity
-Improving error handling for missing files.
+## V. Conclusion and Future Work
 
-# VI. References
-https://www.geeksforgeeks.org/computer-networks/cryptography-and-its-types/
-https://stackoverflow.com/questions/20531474/decrypting-with-rsa-private-key
-https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/
-https://www.askpython.com/python/examples/rsa-algorithm-in-python
+This project demonstrates how RSA cryptography can be used to secure files through encryption and digital signatures. It provides a clear understanding of how public and private keys work together to ensure confidentiality and authenticity.
 
+Possible future improvements include:
 
+* Password protection for private keys
+* Support for large files using hybrid encryption (AES + RSA)
+* Graphical User Interface (GUI)
+* Logging and auditing features
+* Improved error handling
+
+---
+
+## VI. References
+
+* [https://www.geeksforgeeks.org/computer-networks/cryptography-and-its-types/](https://www.geeksforgeeks.org/computer-networks/cryptography-and-its-types/)
+* [https://stackoverflow.com/questions/20531474/decrypting-with-rsa-private-key](https://stackoverflow.com/questions/20531474/decrypting-with-rsa-private-key)
+* [https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/](https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/)
+* [https://www.askpython.com/python/examples/rsa-algorithm-in-python](https://www.askpython.com/python/examples/rsa-algorithm-in-python)
