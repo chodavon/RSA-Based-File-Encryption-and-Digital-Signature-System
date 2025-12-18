@@ -133,6 +133,6 @@ pip install cryptography
 ```
 ### 8. System Requirements
 
-- Operating System: Windows / Linux / macOS
+- Operating System: Windows
 - Python Version: **Python 3.12**
 
