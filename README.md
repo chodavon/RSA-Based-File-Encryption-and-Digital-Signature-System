@@ -48,17 +48,17 @@ The system follows a modular design:
 ## 5. Project Structure
 RSA_File_Security/
 │
-├── main.py
-├── keys.py
-├── encryptor.py
-├── signer.py
+├── main.py # Main program and menu controller
+├── keys.py # RSA key pair generation
+├── encryptor.py # File encryption and decryption logic
+├── signer.py # Digital signature and verification
 │
-├── message.txt
-├── private.pem
-├── public.pem
-├── ciphertext.txt
-├── decrypted.txt
-├── message.txt.sig
+├── message.txt # Sample plaintext file
+├── private.pem # Generated RSA private key
+├── public.pem # Generated RSA public key
+├── ciphertext.txt # Encrypted output file
+├── decrypted.txt # Decrypted file (original content)
+├── message.txt.sig # Digital signature file
 
 ## 6. Usage Guide
 
