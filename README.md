@@ -1,4 +1,4 @@
-# 🔐 RSA-Based File Encryption and Digital Signature System
+#  RSA-Based File Encryption and Digital Signature System
 
 ## I. Introduction
 
