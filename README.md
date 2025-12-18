@@ -59,8 +59,9 @@ The project consists of the following files:
 - **public.pem** – Generated RSA public key  
 - **ciphertext.txt** – Encrypted output file  
 - **decrypted.txt** – Decrypted file (original content)  
-- **message.txt.sig** – Digital signature file  
+- **message.txt.sig** – Digital signature file
 
+---
 
 ## 6. Usage Guide
 
