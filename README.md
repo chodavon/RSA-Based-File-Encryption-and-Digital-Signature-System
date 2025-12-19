@@ -60,6 +60,7 @@ The project consists of the following files:
 - **ciphertext.txt** – Encrypted output file  
 - **decrypted.txt** – Decrypted file (original content)  
 - **message.txt.sig** – Digital signature file
+<img width="806" height="1114" alt="Screenshot 2025-12-10 230607" src="https://github.com/user-attachments/assets/5bd51cb4-cc51-40bb-b873-9aa26a422b8d" />
 
 ---
 
